@@ -26,7 +26,17 @@ Usage of ./opentsdb-load-generator:
 
 e.g. to push data at the rate of 10k datapoints per second on 10 connections, use the following command:
 ```bash
-./opentsdb-load-generator -conn=10 -rate=10000
+$ ./opentsdb-load-generator -conn=5 -rate=10000
+2017/01/24 21:57:46 Conn No: 0, connected to localhost:4242
+2017/01/24 21:57:46 Conn No: 2, connected to localhost:4242
+2017/01/24 21:57:46 Conn No: 1, connected to localhost:4242
+2017/01/24 21:57:46 Conn No: 4, connected to localhost:4242
+2017/01/24 21:57:46 Conn No: 3, connected to localhost:4242
+2017/01/24 21:57:47 Pushed 2000 data points in last 1 second on Conn: 1
+2017/01/24 21:57:47 Pushed 2000 data points in last 1 second on Conn: 3
+2017/01/24 21:57:47 Pushed 2000 data points in last 1 second on Conn: 0
+2017/01/24 21:57:47 Pushed 2000 data points in last 1 second on Conn: 2
+2017/01/24 21:57:47 Pushed 2000 data points in last 1 second on Conn: 4
 ```
 
 ### Contributing
