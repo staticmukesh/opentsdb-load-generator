@@ -92,10 +92,15 @@ func pushData(data <-chan string, conf *Conf) {
 				}
 			}(conn)
 
+			ticker := time.NewTicker(time.Second)
+			count := 0
 			for {
 				select {
 				case req := <-data:
 					conn.Write([]byte(req))
+					break
+				case <-ticker.C:
+					log.Printf("Pushed %d data points in last 1 second on Conn: %d\n", count, i)
 					break
 				}
 			}

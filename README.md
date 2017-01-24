@@ -11,7 +11,7 @@ go get github.com/staticmukesh/opentsdb-load-generator
 The `opentsdb-load-generator` binary should now be available at `$GOPATH/bin`/opentsdb-load-generator
 
 ### Usage
-```go
+```bash
 $ ./opentsdb-load-generator --help
 Usage of ./opentsdb-load-generator:
   -conn int
