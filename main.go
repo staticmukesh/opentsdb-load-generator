@@ -79,7 +79,7 @@ func pushData(data <-chan string, conf *Conf) {
 			}
 			defer conn.Close()
 
-			log.Printf("Conn: %d, Connected to %s", connId, conf.Server)
+			log.Printf("Conn No: %d, connected to %s", connId, conf.Server)
 			go func(conn net.Conn) {
 				for {
 					resp, err := bufio.NewReader(conn).ReadString('\n')
@@ -98,9 +98,11 @@ func pushData(data <-chan string, conf *Conf) {
 				select {
 				case req := <-data:
 					conn.Write([]byte(req))
+					count++
 					break
 				case <-ticker.C:
 					log.Printf("Pushed %d data points in last 1 second on Conn: %d\n", count, i)
+					count = 0
 					break
 				}
 			}
