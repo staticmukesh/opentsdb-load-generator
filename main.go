@@ -61,7 +61,7 @@ func generateLoad(data chan<- string, conf *Conf) {
 				case <-ticker.C:
 					timeStamp := time.Now().Unix()
 					value := rand.Intn(100)
-					req := fmt.Sprintf("put %s %d %d host=%s", conf.Metric, timeStamp, value, conf.Host)
+					req := fmt.Sprintf("put %s %d %d host=%s\n", conf.Metric, timeStamp, value, conf.Host)
 					data <- req
 					break
 				}
